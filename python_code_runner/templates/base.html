@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python code runner</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+<div class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-primary default rounded-bottom container"
+     role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <h3 class="font-weight-bold"><a id="title" style="color: whitesmoke">Python code runner</a>
+            </h3>
+        </div>
+    </div>
+</div>
+<div class="container bg-light h-100">
+    <br/>
+    <div id="alert-container" style="position: absolute; width: 1110px;">
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+            <br/>
+            <div class="alert alert-{{ category }} alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% block container %}{% endblock %}
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <div id="python-code">
+        <form>
+            <div class="form-group">
+                <label for="pythonTextarea">Python code</label>
+                <textarea class="form-control" id="pythonTextarea" rows="15"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Run code</button>
+        </form>
+    </div>
+    <br/>
+    <div id="code-result">
+        <div class="form-group">
+            <label for="codeResult">Code result</label>
+            <textarea class="form-control" id="codeResult" rows="8" readonly></textarea>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ url_for('static', filename='code-handler.js') }}"></script>
+{% endblock %}
